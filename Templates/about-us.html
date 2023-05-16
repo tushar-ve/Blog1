@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block title %}Welcome to LEKH{%endblock%}
+
+
+
+
+{% block content%}
+
+
+
+
+
+<div class="container">
+ <form action="">
+  <h2 style="text-align:center;font-style:bold;" ><i><b>CONTACT US</b></i></h2>
+  <label for="fname" style="font-size:20px; font-weight:500; margin:4px">First Name</label>
+  <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+
+  <label for="lname">Last Name</label>
+  <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+  <label for="email">E-mail</label>
+  <input type="email" name="E-mail" placeholder="Your Email..." required><br><br>
+  <label for="phone">Phone Number</label>
+  <input type="numeric" name="Phone Number" placeholder="Your Phone Number...." required>
+ <br><br> <input class="bg-primary" style="" type="submit" value="Submit">
+
+ </form>
+ </div>
+
+<br><br><br><br>
+
+
+
+
+
+
+
+
+
+ {%endblock%}

@@ -1,0 +1,29 @@
+
+
+
+<footer class="page-footer bg-primary">
+   <div class=""> 
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">LEKH..........</h5>
+        <p class="grey-text text-lighten-4">Read More Grow More..</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Categories</h5>
+        <ul>
+          {% for p in cats %}
+          <li><a class="grey-text text-lighten-3" href="/category/{{p.url}}">{{p.title}}</a></li>
+          {% endfor %}  
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container"> 
+    © 2023 Copyright 
+    </div>
+    
+    
+   </div> 
+  </div>
+</footer>

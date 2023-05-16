@@ -1,0 +1,33 @@
+.bg-primary{
+  background: #65a6db !important;
+}
+
+.mt20{
+  margin-top:20px
+}
+
+.container-custom{
+  width: 90% !important;
+  margin: auto;
+}
+.img{
+  align-items: center;
+}
+.item{
+
+  margin-left: 10px;
+}
+.new-img{
+  width:fit-content;
+  height:250px;
+}
+
+.color{
+  background: #000;
+}
+.zoom{
+  font-size: 25px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    margin-left: -36px;
+}
