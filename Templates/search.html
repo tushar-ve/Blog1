@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block title %}Search Content{% endblock %}
+
+
+
+
+{% block content%}
+  
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      {% for p in posts %}
+      <div class="row">
+        <div class="col s12 m8">
+         <div style=""> {{p.title}}</div>
+          {{p.content |truncatewords:60| safe}}
+
+          <div class="mt20">
+            <a href="/blog/{{p.url}}" class="btn bg-primary"> Read..More..</a>
+          </div>
+        </div>
+        <div class="col s12 m4">
+          <img src="/media/{{p.image}}" class="responsive-img" style="margin-top: 50px;" alt="/" />
+        </div>
+      </div>
+      <hr class="hr">
+      {% empty %}
+
+       <h1>No Data Found</h1>
+      {% endfor %}
+   
+    </div>
+  </div>
+</div>
+
+      
+   
+{% endblock%}

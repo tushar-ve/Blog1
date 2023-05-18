@@ -21,7 +21,7 @@ from .views import *
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',contactus),
-    #  path('tinymce/', include('tinymce.urls')),
+    path('contact_us/', ContactUs, name="contact_us"),
+    path('thanks/',thank),
+   
 ]

@@ -24,7 +24,8 @@ from django.conf import settings
 urlpatterns = [
     path('', home),
     path('blog/<slug:url>', post),
-    path('category/<slug:url>', category)
+    path('category/<slug:url>', category),
+    path('search/', search, name="search"),
     # path('admin/', admin.site.urls),
     # path('/lekh', include('lekh.urls'))
     #  path('tinymce/', include('tinymce.urls')),

@@ -33,7 +33,7 @@ block%}
 
  </div>
 
-</div> 
+</div>
 
 
 
@@ -60,9 +60,40 @@ block%}
           <img src="/media/{{p.image}}" class="responsive-img" style="margin-top: 50px;" alt="/" />
         </div>
       </div>
+      <hr class="hr">
       {% endfor %}
+   
     </div>
   </div>
 </div>
 
+{% comment %} <div class="npp key">
+  <form method="GET">
+    <div class="input-field">
+      <input id="search" name="title" type="search" required>
+      <label class="label-icon"  for="search"><i>search</i></label>
+      <input type="submit" value="search" />
+    </div>
+  </form>
+</div> {% endcomment %}
+
+<form action="/search" method= "get" class="npp key">
+  <input type="text" name = "title" value="" />
+  <input type="submit" class="bg-primary" style="border:none; border-radius:20%; margin-right:2px;" value="search" />
+  </form>
+
+
+ <ul class="pagination" style="margin-bottom:10px">
+  <li ><a href="/?page=1">First</a></li>
+  {% for n  in totalPagelist  %}
+  
+
+  <li class="active  bg-primary"><a href="/?page={{n}}">{{n}}</a></li>
+  {% endfor %}
+  {% if posts.has_next %}
+  <li class="waves-effect"><a href="?page={{posts.next_page_number}}">next</a></li>
+  {% endif %}
+  <li class="waves-effect"><a href="?page={{lastpage}}">last</a></li>
+ 
+</ul> 
 {% endblock %}

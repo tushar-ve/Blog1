@@ -31,3 +31,37 @@
     text-orientation: mixed;
     margin-left: -36px;
 }
+
+.nep{
+  display:flex;
+  float:right;
+  background: #000;
+}
+.hr {
+  display: block;
+  position: relative;
+  padding: 0;
+  margin: 8px auto;
+  height: 0;
+  width: 100%;
+  max-height: 0;
+  font-size: 1px;
+  line-height: 2;
+  clear: both;
+  border: none;
+  border-radius: 50%;
+  border-top: 4px solid #4b96b3;
+  border-bottom: 3px solid #f3f0e7;
+}
+
+.npp{
+  display:flex;
+  float: right;
+  margin-top: -1037px;
+  margin-right: 67px;
+}
+.key{
+  margin-bottom:4px;
+
+  /* border-bottom: 3px solid #00ccff; */
+}
