@@ -84,16 +84,16 @@ block%}
 
 
  <ul class="pagination" style="margin-bottom:10px">
-  <li ><a href="/?page=1">First</a></li>
+  <li ><a href="/home/?page=1">First</a></li>
   {% for n  in totalPagelist  %}
   
 
-  <li class="active  bg-primary"><a href="/?page={{n}}">{{n}}</a></li>
+  <li class="active  bg-primary"><a href="/home/?page={{n}}">{{n}}</a></li>
   {% endfor %}
   {% if posts.has_next %}
-  <li class="waves-effect"><a href="?page={{posts.next_page_number}}">next</a></li>
+  <li class="waves-effect"><a href="/home/?page={{posts.next_page_number}}">next</a></li>
   {% endif %}
-  <li class="waves-effect"><a href="?page={{lastpage}}">last</a></li>
+  <li class="waves-effect"><a href="/home/?page={{lastpage}}">last</a></li>
  
 </ul> 
 {% endblock %}

@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'lekh',
     'rest_framework',
     'contact_us',
+    'payment',
+    'Auth',
     # 'tinymce',
 ]
 

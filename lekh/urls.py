@@ -22,7 +22,7 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('', home),
+    path('home/', home),
     path('blog/<slug:url>', post),
     path('category/<slug:url>', category),
     path('search/', search, name="search"),
