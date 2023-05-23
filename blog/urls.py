@@ -26,5 +26,4 @@ urlpatterns = [
     path('', include('lekh.urls')),
     path('', include('contact_us.urls')),
     path('', include('payment.urls')),
-     path('', include('Auth.urls')),
 ]+static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

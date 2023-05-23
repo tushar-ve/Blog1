@@ -1,25 +1,30 @@
- <ul id="dropdown1" class="dropdown-content">
-
+<ul id="dropdown1" class="dropdown-content">
   {% for p in cats%}
   <li><a href="/category/{{p.url}}">{{p.title}}</a></li>
   {%endfor%}
 </ul>
 <nav class="bg-primary">
- <div class="container">
-  <div class="nav-wrapper">
-    <a href="/home" class="brand-logo"><b>LEKH</b><span class="zoom">......</span></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="/contact_us/"><strong>Contact Us</strong></a></li>
-      <li><a href="/admin"><strong>ADMIN</strong></a></li>
-      <!-- Dropdown Trigger -->
-      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><strong>CATEGORY</strong><i class="material-icons right">arrow_drop_down</i></a></li>
-     
-    </ul>
-  
-  
+  <div class="container">
+    <div class="nav-wrapper">
+      <a href="/home" class="brand-logo"
+        ><b>LEKH</b><span class="zoom">......</span></a
+      >
+      <ul class="right hide-on-med-and-down">
+        <li>
+          <a href="/contact_us/"><strong>Contact Us</strong></a>
+        </li>
+        <li>
+          <a href="/admin"><strong>ADMIN</strong></a>
+        </li>
+        <!-- Dropdown Trigger -->
+        <li>
+          <a class="dropdown-trigger" href="#!" data-target="dropdown1"
+            ><strong>CATEGORY</strong
+            ><i class="material-icons right">arrow_drop_down</i></a
+          >
+        </li>
+       
+      </ul>
+    </div>
   </div>
- </div>
-</nav> 
-
-
-
+</nav>

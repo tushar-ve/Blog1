@@ -22,10 +22,12 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('home/', home),
-    path('blog/<slug:url>', post),
+    path('home/', home, name="home"),
+    path('blog/<slug:url>', post,name='post'),
     path('category/<slug:url>', category),
     path('search/', search, name="search"),
+    path('login/', login_page , name='login'),
+    path('', register),
     # path('admin/', admin.site.urls),
     # path('/lekh', include('lekh.urls'))
     #  path('tinymce/', include('tinymce.urls')),
