@@ -31,7 +31,11 @@
     text-orientation: mixed;
     margin-left: -36px;
 }
-
+.page-footer {
+  margin-top: auto;
+  color: #fff;
+  position:relative;
+}
 .nep{
   display:flex;
   float:right;
@@ -153,6 +157,7 @@
      .logo{
       display: flex;
       justify-content: space-evenly;
+      margin-top: 15px;
      }
      .button1{
       background-color: #ececec;
