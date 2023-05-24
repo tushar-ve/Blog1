@@ -1,7 +1,7 @@
 
 from .models import *
 # Create your views here.
-from django.shortcuts import render, redirect  
+from django.shortcuts import render, redirect  ,HttpResponse
 from django.contrib.auth.models import User 
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -95,21 +95,27 @@ def login_page(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        clientKey = request.POST['g-recaptcha-response']
-        secretKey ='6Ld1ai0mAAAAAG2WFSKVkFDHXnCYu14ZsQATNk8m'
-        CaptchaData ={
-            'secret': secretKey,
-            'response': clientKey
-        }
-        r = requests.post('https://www.google.com/recaptcha/api/siteverpfy', data=CaptchaData)
-        response = json.loads(r.text)
-        verify = response['success']
-        print('you data is saved', verify)
+        # clientKey = request.POST['g-recaptcha-response']
+        # secretKey ='6Ld1ai0mAAAAAG2WFSKVkFDHXnCYu14ZsQATNk8m'
+        # CaptchaData ={
+        #     'secret': secretKey,
+        #     'response': clientKey
+        # }
+        # r = requests.post('https://www.google.com/recaptcha/api/siteverpfy', data=CaptchaData)
+        # response = json.loads(r.text)
+        # verify = response['success']
+        # print('you data is saved', verify)
+        
         user= authenticate(username=username,password=password)
-
-        if user is not None:
-            login(request,user)
-            return render(request,'home.html')
+        print(user)
+        if username!=None:
+            if User.objects.filter(username=username):
+                login(request,user)
+                return redirect("/home")
+            else:
+                messages.error(request, "Please Enter a valid Username or password")
+        else:
+            return HttpResponse("Bad Credentials")
         
         
             

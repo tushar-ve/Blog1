@@ -27,7 +27,7 @@ urlpatterns = [
     path('category/<slug:url>', category),
     path('search/', search, name="search"),
     path('login/', login_page , name='login'),
-    path('', register),
+    path('', register, name='register'),
     # path('admin/', admin.site.urls),
     # path('/lekh', include('lekh.urls'))
     #  path('tinymce/', include('tinymce.urls')),

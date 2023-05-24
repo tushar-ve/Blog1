@@ -10,8 +10,7 @@
   {% comment %} This site is protected by reCAPTCHA and the Google {% endcomment %}
   
   <div class="grid">
-
-    <form action="{% url 'home' %}" method="POST" class="form login">
+    <form  method="POST" class="form login">
       {% csrf_token %}
 
       <div class="form__field">
@@ -27,7 +26,7 @@
           </svg><span class="hidden">Password</span></label>
         <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
       </div>
-      <div class="g-recaptcha" data-sitekey="6Ld1ai0mAAAAALSDF0NsEyDJGLGGi3j7VveKzENI"></div>
+      {% comment %} <div class="g-recaptcha" data-sitekey="6Ld1ai0mAAAAALSDF0NsEyDJGLGGi3j7VveKzENI"></div> {% endcomment %}
       <div class="form__field">
         <input type="submit" value="Sign In">
       </div>
@@ -39,7 +38,7 @@
       {% endfor %}
       </div>
       
-    <p class="text--center">Not a member? <a href="#">Sign up now</a> <svg class="icon">
+    <p class="text--center">Not a member? <a href="{%url 'register'%}">Sign up now</a> <svg class="icon">
         <use xlink:href="#icon-arrow-right"></use>
       </svg></p>
 
