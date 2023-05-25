@@ -24,5 +24,8 @@
     <div class="card_terms">
         <input type="checkbox" name="" id="terms"> <span>I have read and agree to the <a href="">Terms of Service</a></span>
     </div>
+    {% for message in messages%}
+      <p style="color:red; font-style:bold;margin-bottom:10px">{{message}}</p>
+      {% endfor %}
   </div>
 </div>

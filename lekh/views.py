@@ -2,16 +2,17 @@
 from .models import *
 # Create your views here.
 from django.shortcuts import render, redirect  ,HttpResponse
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User , auth
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 import json
 import requests
 
 
 
-
+@login_required(login_url='/login')
 def home(request):
     posts= Post.objects.all().order_by('post_id')
     
@@ -39,8 +40,7 @@ def home(request):
     }
     return render(request, "home.html", data)
 
-
-
+@login_required(login_url='/login')
 def search(request):
 
   st=request.GET.get('title')
@@ -55,7 +55,7 @@ def search(request):
 
   return render(request,'search.html',data)
 
-
+@login_required(login_url='/login')
 def post(request, url):
     post= Post.objects.get(url=url)
     cats = Category.objects.all()
@@ -81,7 +81,7 @@ def post(request, url):
    
     return render(request, "posts.html", {'post':post,'cats':cats, 'comments':comment})
 
-
+@login_required(login_url='/login')
 def category(request, url):
     cat = Category.objects.get(url=url)
     posts= Post.objects.filter(cat=cat)
@@ -90,6 +90,7 @@ def category(request, url):
 
 
 def login_page(request):
+    
     
     if request.method =="POST":
         username = request.POST.get('username')
@@ -108,17 +109,18 @@ def login_page(request):
         
         user= authenticate(username=username,password=password)
         print(user)
-        if username!=None:
-            if User.objects.filter(username=username):
-                login(request,user)
-                return redirect("/home")
+        if User.objects.filter(username=username):
+            if User.objects.filter(password=password):
+                if username!=None:
+                
+                        login(request, user)
+                        return redirect("/home")
+               
             else:
-                messages.error(request, "Please Enter a valid Username or password")
+                messages.error(request, "Please Enter a valid password")
         else:
-            return HttpResponse("Bad Credentials")
-        
-        
-            
+           messages.error(request, "Please Enter a valid Username")
+         
 
     return render(request, "auth/index.html")
 
@@ -133,7 +135,7 @@ def register(request):
 
         if user.exists():
             messages.error(request, 'Username already taken')
-            return redirect("auth/signup.html")
+            return redirect("/")
         
         user = User.objects.create(
             username=username,
@@ -143,13 +145,22 @@ def register(request):
 
         
         user.save()
+        user.get_all_permissions()
 
         # messages.success(request, 'Account created Successfully')
 
          
         return redirect("/login")
+  
+    # messages.error(request,'The given input is already taken')
 
     return render(request,"auth/signup.html")
 
 
+@login_required(login_url='/login')
 
+def logout(request):
+
+  auth.logout(request)
+
+  return redirect('/login')
